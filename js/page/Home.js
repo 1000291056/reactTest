@@ -1,19 +1,31 @@
-import React,{Component} from 'react'
-import {
-    Navigator,Image
-}from 'react-native'
-function Home(){
-  class HomeComponent extends Component {
+/**
+ * Created by wufeifei on 2016/12/8.
+ */
+import React, {Component} from 'react'
+import {Navigator} from 'react-native'
+import NavigatorCp from './NavigatorCp'
+export default class Home extends Component {
     constructor() {
-      super();
+        super();
     }
-    render(){
-      let pic = {
-       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-     };
-     return <Image source={pic} style={{width: 193, height: 110}}/>
+
+    render() {
+        return <Navigator
+            initialRoute={
+            {title: '首页', index: 0}}
+            renderScene={(route, navigate)=>
+                <NavigatorCp
+                    name={route.title}
+                    onForward={()=> {
+                        const nextIndex = route.index + 1;
+                        navigate.push({title: '我是页面' + nextIndex, index: nextIndex})
+                    }}
+                    onBack={()=> {
+                        if (route.index > 0) {
+                            navigate.pop();
+                        }
+                    }}
+                ></NavigatorCp>}
+        ></Navigator>
     }
-  }
-  return <HomeComponent/>
 }
-module.exports=Home;
