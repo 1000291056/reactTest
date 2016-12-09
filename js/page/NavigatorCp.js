@@ -19,7 +19,7 @@ export default class NavigatorCp extends Component {
                 <Text>点击进入下一页面</Text>
             </TouchableHighlight>
             <TouchableHighlight onPress={this.props.onBack}>
-                <Text>点击进入下一页面</Text>
+                <Text>点击返回上一页面</Text>
             </TouchableHighlight>
         </View>
     }
