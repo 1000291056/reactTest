@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="test.js"></script>
+</head>
+<body>
+<script>
+    var good = {
+        count: 1
+    };
+    Object.defineProperty(good, "name1", {
+        get: function () {
+            return this.count;
+        },
+        set: function (newvalue) {
+            this.count += newvalue;
+        }
+
+    });
+    good.name1 = 2;
+    alert("商品：" + good.count);
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("POST", "url", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("fname=Bill&lname=Gates");//post才传参数
+    xmlhttp.onreadystatechange=function () {
+        
+    }
+</script>
+</body>
+</html>
