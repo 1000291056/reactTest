@@ -8,3 +8,10 @@ function Good() {
     //     alert("商品：" + this.name);
     // }
 }
+function test() {
+    require(["jquery","testshim"], function (jq,testshim) {
+        jq(".text").text("the world");
+        alert("aaa");
+        testshim.showShimCfg();
+    })
+}
